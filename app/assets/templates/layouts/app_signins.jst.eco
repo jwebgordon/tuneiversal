@@ -1,0 +1,7 @@
+<div  id='soundcloud_signin'>
+	<img src="/assets/soundcloud.png" class="sign-in-icon 
+			<% if not Tuneiversal.currentUser.attributes.has_connected_soundcloud: %>
+				<%= "signed-out" %>
+			<% end %>
+	">	
+</div>

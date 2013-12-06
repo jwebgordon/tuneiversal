@@ -1,0 +1,12 @@
+<nav class="row-fluid" id="top-nav">
+
+</nav>
+<div class='container-fluid'>
+<div class="row-fluid apps-container">
+	<h4>Sign in to your accounts:</h4>
+	<div class="span3" id="sign-ins">
+		
+	</div>
+</div>
+<div id="the-content"></div>
+</div>

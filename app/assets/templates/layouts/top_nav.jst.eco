@@ -1,0 +1,11 @@
+	<div class="span4">
+		<img src="http://cdn2.hubspot.net/hub/160982/file-23053666-jpg/images/astro.jpg" class="nav-icon">
+		<p class="company-name">Tuneiversal</p>
+	</div>
+	<div class="span4 offset4">
+		<nav>
+			<ul>
+				<li id="signout-button">Sign Out</li>
+			</ul>
+		</nav>
+	</div>
