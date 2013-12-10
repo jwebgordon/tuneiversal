@@ -20,6 +20,7 @@ Tuneiversal.vent.on 'authentication:logged_in', () ->
   Tuneiversal.layouts.app_signins.soundcloud_auto_auth()
   Tuneiversal.layouts.main.nav.show Tuneiversal.layouts.top_nav
   Tuneiversal.layouts.main.content.show Tuneiversal.layouts.content_tabs
+  Tuneiversal.layouts.content_tabs.playlists.show Tuneiversal.layouts.playlists_tab
   # Tuneiversal.layouts.content_tabs.soundcloud.show Tuneiversal.layouts.soundcloud_tab
 Tuneiversal.vent.on 'authentication:logged_out', () ->
   console.log 'logged out'

@@ -7,7 +7,7 @@ class Tuneiversal.Models.UserRegistration extends Backbone.Model
     password_confirmation: ""
 
   toJSON: () ->
-    user: _.clone @attributes
+    return { user: _.clone(@attributes) }
   # sync: (method, model, options) ->
 
   # save: (attributes, options) ->

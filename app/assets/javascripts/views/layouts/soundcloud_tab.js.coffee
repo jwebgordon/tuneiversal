@@ -11,7 +11,6 @@ class Tuneiversal.Views.Layouts.SoundcloudTab extends Backbone.Marionette.Layout
         @render_favorites faves
 
   render_favorites: (faves) ->
-    console.log faves
     songs = new Tuneiversal.Collections.Songs
     for song in faves
       sc_song = new Tuneiversal.Models.Song

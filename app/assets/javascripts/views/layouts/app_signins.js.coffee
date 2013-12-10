@@ -3,8 +3,16 @@ class Tuneiversal.Views.Layouts.AppSignins extends Backbone.Marionette.Layout
 
   events:
     'click #soundcloud_signin': 'soundcloud_auth'
+    'click #rdio_signin': 'rdio_auth'
 
   initialize: () ->
+    R.ready (ready) ->
+      if R.authenticated()
+        $('#rdio_signin .sign-in-icon').removeClass('signed-out')
+        Tuneiversal.layouts.content_tabs.rdio.show Tuneiversal.layouts.rdio_tab
+        Tuneiversal.layouts.rdio_tab.get_user_collection()
+      
+
     
   soundcloud_auto_auth: () ->
     if Tuneiversal.currentUser? and Tuneiversal.currentUser.attributes.has_connected_soundcloud
@@ -42,7 +50,9 @@ class Tuneiversal.Views.Layouts.AppSignins extends Backbone.Marionette.Layout
     #   SC.get '/me', (me) ->
 
   rdio_auth: () ->
-    
+    R.authenticate (authenticated) ->
+      if authenticated
+        $('#rdio_signin .sign-in-icon').removeClass('signed-out')
 
 
 

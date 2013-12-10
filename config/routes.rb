@@ -14,6 +14,7 @@ Tuneiversal::Application.routes.draw do
   get 'rdio/callback', to: 'rdio#callback'
   get '/api/playlists', to: 'api/playlists#index'
   get '/api/add_song_to_playlist/:playlist_id/:song_id', to: 'api/playlists#add_song_to_playlist'
+  get '/api/get_songs_in_playlist/:playlist_id', to: 'api/songs#get_songs_in_playlist'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

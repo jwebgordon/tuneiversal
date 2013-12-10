@@ -12,6 +12,10 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def add_song_to_playlist
-  	Playlist.find(params[:playlist_id]).songs << Song.find(params[:song_id])
+  	playlist = Playlist.find(params[:playlist_id])
+  	playlist.songs << Song.find(params[:song_id])
+  	respond_with playlist.id
   end
+
+
 end
