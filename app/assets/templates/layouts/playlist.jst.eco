@@ -1,0 +1,3 @@
+<div class="playlist">
+	<p class="playlist-title"><%= __obj.playlist.title %></p>
+</div>

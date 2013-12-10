@@ -1,0 +1,4 @@
+<div id="playlist-container" class="row-fluid">
+  		<div id="playlist-left" class="span3"></div>
+  		<div id="playlist-right" class="span9"></div>
+</div>
