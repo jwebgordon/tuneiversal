@@ -20,7 +20,7 @@ class Tuneiversal.Views.Layouts.AppSignins extends Backbone.Marionette.Layout
       SC.initialize 
         client_id: '0f8a3ab92bb2f82f2ad7e826bbc073da'
         client_secret: '417ecd4081ca6b103dc403cca2e29a61'
-        redirect_uri: 'http://localhost:1122'
+        redirect_uri: 'http://app.tuneiversal.com'
         access_token: Tuneiversal.currentUser.attributes.sc_access_token
       promise.resolve()
       promise.done () =>
@@ -34,7 +34,7 @@ class Tuneiversal.Views.Layouts.AppSignins extends Backbone.Marionette.Layout
     SC.initialize 
       client_id: '0f8a3ab92bb2f82f2ad7e826bbc073da'
       client_secret: '417ecd4081ca6b103dc403cca2e29a61'
-      redirect_uri: 'http://localhost:1122'
+      redirect_uri: 'http://app.tuneiversal.com'
       access_token: Tuneiversal.currentUser.attributes.sc_access_token
     if SC.isConnected()
       Tuneiversal.currentUser.save(has_connected_soundcloud: true)
