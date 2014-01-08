@@ -1,3 +1,12 @@
+<div class="row-fluid">
+	<div class="playlist-create-container span3">
+		<div class="form playlist-create-form">
+			<label>Create new playlist</label>
+			<input type="text" name="playlist_name" id="playlist_name" placeholder="Playlist name">
+			<button type="submit" id="playlist_create_btn" class="btn btn-primary">Create!</button>
+		</div>
+	</div>
+</div>
 <div id="playlist-container" class="row-fluid">
   		<div id="playlist-left" class="span3"></div>
   		<div id="playlist-right" class="span9"></div>

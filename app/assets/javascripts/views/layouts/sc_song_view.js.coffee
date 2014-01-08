@@ -6,6 +6,7 @@ class Tuneiversal.Views.Layouts.SCSong extends Backbone.Marionette.ItemView
     'click .play-pause': 'play_pause'
     'click .stop': 'stop'
     'click .add-to-playlist': 'add_song_to_playlist'
+    'click .dropdown-toggle': 'load_playlist_select'
 
   initialize: () ->
     @model.bind('change', @render)
@@ -15,7 +16,7 @@ class Tuneiversal.Views.Layouts.SCSong extends Backbone.Marionette.ItemView
     @allSongs = new Tuneiversal.Collections.Songs
     @allSongs.fetch success: =>
       @songs_ready.resolve()
-    @load_playlist_select()
+    
   play_pause: () ->
     # if $('.playing').length > 0 and not @$el.hasClass 'playing'
     #   $('.playing .play-pause').click()
@@ -64,6 +65,7 @@ class Tuneiversal.Views.Layouts.SCSong extends Backbone.Marionette.ItemView
   load_playlist_select: () ->
     allPlaylists = new Tuneiversal.Collections.Playlists
     allPlaylists.fetch success: =>
+      @$el.find('.playlist-dropdown-menu').empty()
       for playlist in allPlaylists.models
         @$el.find('.playlist-dropdown-menu').append "<li><a tabindex='-1' class='add-to-playlist' data-playlist='#{playlist.id}'>#{playlist.attributes.title}</a></li>"
 

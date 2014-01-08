@@ -33,8 +33,15 @@ Tuneiversal.bind 'initialize:after', () ->
   else
     Tuneiversal.vent.trigger 'authentication:logged_out'
 Tuneiversal.initialize = -> 
-   new Tuneiversal.Routers.Playlists
-   Backbone.history.start()
+  new Tuneiversal.Routers.Playlists
+  if window.location.href.indexOf 'local' >= 0
+    Tuneiversal.env = "DEV"
+  else
+    Tuneiversal.env = "PROD"
+  Messenger.options = 
+    theme: 'block'
+    extraClasses: 'messenger-fixed messenger-on-top'
+  Backbone.history.start()
 
 $(document).ready ->
   # Tuneiversal.initialize()
