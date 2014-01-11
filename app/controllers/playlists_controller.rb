@@ -34,7 +34,6 @@ class PlaylistsController < ApplicationController
     respond_to do |format|
       if @playlist.save
         format.html { redirect_to @playlist, notice: 'Playlist was successfully created.' }
-        # format.json { render action: 'show', status: :created, location: @playlist }
         format.json { render :json => @playlist }
       else
         format.html { render action: 'new' }

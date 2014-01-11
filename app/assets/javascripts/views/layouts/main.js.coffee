@@ -11,5 +11,4 @@ class Tuneiversal.Views.Layouts.Main extends Backbone.Marionette.Layout
 
 
 Tuneiversal.addInitializer () ->
-  console.log "main layout"
   Tuneiversal.layouts.main = new Tuneiversal.Views.Layouts.Main()

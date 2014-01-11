@@ -5,17 +5,5 @@ class Tuneiversal.Models.Playlist extends Backbone.Model
     u
   paramRoot: 'playlist'
 
-
-  # relations: [
-  #   type: Backbone.HasMany
-  #   key: 'songs'
-  #   relatedModel: Tuneiversal.Models.Song
-  #   collectionType: Tuneiversal.Collections.Song
-  #   reverseRelation:
-  #     key: 'playlists'
-  #     includeInJSON: 'id'
-  #   ]
-
-
   toJSON: () ->
     playlist: _.clone @attributes

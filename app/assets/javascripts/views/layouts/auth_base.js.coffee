@@ -18,11 +18,8 @@ class Tuneiversal.Views.Layouts.AuthBase extends Backbone.Marionette.Layout
     e.preventDefault()
     console.log e.target
     @content.show new @views[$(e.target).attr('data-content')]
-  # render: () ->
-  #   console.log "render called #{@template}"
-  #   $('#app').html @template
+
 
 
 Tuneiversal.addInitializer () ->
-  console.log 'adding auth layout'
   Tuneiversal.layouts.auth_base = new Tuneiversal.Views.Layouts.AuthBase

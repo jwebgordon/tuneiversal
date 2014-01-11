@@ -21,19 +21,7 @@ Tuneiversal.vent.on 'authentication:logged_in', () ->
   Tuneiversal.layouts.main.nav.show Tuneiversal.layouts.top_nav
   Tuneiversal.layouts.main.content.show Tuneiversal.layouts.content_tabs
   Tuneiversal.layouts.content_tabs.playlists.show Tuneiversal.layouts.playlists_tab
-  # Tuneiversal.layouts.content_tabs.soundcloud.show Tuneiversal.layouts.soundcloud_tab
-Tuneiversal.vent.on 'authentication:logged_out', () ->
-  console.log 'logged out'
-  Tuneiversal.app.show Tuneiversal.layouts.auth_base
-Tuneiversal.bind 'initialize:after', () ->
-  # Backbone.sync = (method, model, options) ->
-
-  if Tuneiversal.currentUser
-    Tuneiversal.vent.trigger 'authentication:logged_in'
-  else
-    Tuneiversal.vent.trigger 'authentication:logged_out'
-Tuneiversal.initialize = -> 
-  new Tuneiversal.Routers.Playlists
+  console.log 'assigning env'
   if window.location.href.indexOf 'local' >= 0
     Tuneiversal.env = "DEV"
   else
@@ -42,7 +30,14 @@ Tuneiversal.initialize = ->
     theme: 'block'
     extraClasses: 'messenger-fixed messenger-on-top'
   Backbone.history.start()
+Tuneiversal.vent.on 'authentication:logged_out', () ->
+  console.log 'logged out'
+  Tuneiversal.app.show Tuneiversal.layouts.auth_base
+Tuneiversal.bind 'initialize:after', () ->
+  if Tuneiversal.currentUser
+    Tuneiversal.vent.trigger 'authentication:logged_in'
+  else
+    Tuneiversal.vent.trigger 'authentication:logged_out'
 
-$(document).ready ->
-  # Tuneiversal.initialize()
+
   

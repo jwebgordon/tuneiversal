@@ -2,7 +2,6 @@ class Tuneiversal.Views.Layouts.SoundcloudTab extends Backbone.Marionette.Layout
   template: 'layouts/soundcloud_tab'
 
   initialize: () ->
-    # @get_favorites()
 
   get_favorites: () ->
     SC.get '/me', (me) =>

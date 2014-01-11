@@ -14,14 +14,5 @@ class Tuneiversal.Models.Song extends Backbone.Model
     isPlaying: false
     track_obj: null
 
-  # relations: [
-  #   type: Backbone.HasMany
-  #   key: 'playlists'
-  #   relatedModel: Tuneiversal.Models.Playlist
-  #   collectionType: Tuneiversal.Collections.Playlists
-  #   reverseRelation: 
-  #     key: 'songs'
-  #     includeInJSON: 'id'
-  #   ]
   toJSON: () ->
     song: _.clone @attributes

@@ -1,6 +1,5 @@
 class Tuneiversal.Views.Layouts.SCSong extends Backbone.Marionette.ItemView
   template: 'layouts/sc_song'
-  # el: '#soundcloud'
 
   events:
     'click .play-pause': 'play_pause'
@@ -11,16 +10,12 @@ class Tuneiversal.Views.Layouts.SCSong extends Backbone.Marionette.ItemView
   initialize: () ->
     @model.bind('change', @render)
     @model.view = @
-    # @playlists = new Tuneiversal.Collections.Playlists
     @songs_ready = new $.Deferred()
     @allSongs = new Tuneiversal.Collections.Songs
     @allSongs.fetch success: =>
       @songs_ready.resolve()
     
   play_pause: () ->
-    # if $('.playing').length > 0 and not @$el.hasClass 'playing'
-    #   $('.playing .play-pause').click()
-    console.log 'play pause called'
     if Tuneiversal.activeSong? and not @model.get('isPlaying')
       Tuneiversal.activeSong.view.stop()
     if not @track
@@ -57,7 +52,7 @@ class Tuneiversal.Views.Layouts.SCSong extends Backbone.Marionette.ItemView
 
 
   swap_play_image: () ->
-    if @model.get('isPlaying')#@$el.hasClass 'playing'
+    if @model.get('isPlaying')
       @$el.find('.play-pause').attr('src','/assets/audio_pause.png')
     else
       @$el.find('.play-pause').attr('src','/assets/audio_play.png')

@@ -16,11 +16,10 @@
 //= require turbolinks
 //= require underscore
 //= require backbone
-//= require backbone-relational
 //= require_tree ../templates
 //= require backbone.marionette
-//= require Backbone.ModelBinder
-//= require Backbone.CollectionBinder
+//= require backbone-modelbinder
+//= require backbone-collectionbinder
 //= require tuneiversal
 //= require_tree ./models
 //= require_tree ./collections

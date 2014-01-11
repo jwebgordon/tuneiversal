@@ -7,7 +7,6 @@ class Tuneiversal.Views.Layouts.RdioSong extends Backbone.Marionette.ItemView
     'click .add-to-playlist': 'add_song_to_playlist'
 
   initialize: () ->
-    # @model.bind('change', @render)
     @model.view = @
     R.ready (ready) =>
       @load_playlist_select()
