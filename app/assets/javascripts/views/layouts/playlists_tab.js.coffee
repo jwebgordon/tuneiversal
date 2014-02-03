@@ -5,14 +5,8 @@ class Tuneiversal.Views.Layouts.PlaylistsTab extends Backbone.Marionette.Layout
     'click #playlist_create_btn': 'create_playlist'
 
   initialize: () ->
-    # @get_and_render_playlists()
 
   get_and_render_playlists: () ->
-    console.log 'called get_and_render_playlists'
-    # if Tuneiversal.allPlaylists?
-    #   console.log 'in this if'
-    #   # Add code for rendering new playlists
-    # else
     @allPlaylists = new Tuneiversal.Collections.Playlists
     @allPlaylists.fetch success: () =>
       console.log @allPlaylists
