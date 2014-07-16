@@ -1,4 +1,4 @@
-window.Tuneiversal = new Backbone.Marionette.Application()
+ window.Tuneiversal = new Backbone.Marionette.Application()
 
 Backbone.Marionette.Renderer.render = (template, data) ->
   if !JST[template] 

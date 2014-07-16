@@ -12,7 +12,7 @@ class Tuneiversal.Views.Layouts.SCSong extends Backbone.Marionette.ItemView
     @model.bind('change', @render)
     @model.view = @
     # @playlists = new Tuneiversal.Collections.Playlists
-    @songs_ready = new $.Deferred()
+     
     @allSongs = new Tuneiversal.Collections.Songs
     @allSongs.fetch success: =>
       @songs_ready.resolve()

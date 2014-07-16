@@ -22,6 +22,7 @@ class Tuneiversal.Views.Layouts.RdioTab extends Backbone.Marionette.Layout
         song_id: song.key
         service: 'rdio'
       song_view = new Tuneiversal.Views.Layouts.RdioSong model: rdio_song
+      Tuneiversal.layouts.player.queue.add rdio_song
       $('#rdio').append song_view.render().el
 
 
