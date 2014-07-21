@@ -12,7 +12,7 @@ class Tuneiversal.Views.Layouts.SCSong extends Backbone.Marionette.ItemView
     @model.bind('change', @render)
     @model.view = @
     # @playlists = new Tuneiversal.Collections.Playlists
-     
+    @songs_ready = new $.Deferred() 
     @allSongs = new Tuneiversal.Collections.Songs
     @allSongs.fetch success: =>
       @songs_ready.resolve()
@@ -24,12 +24,17 @@ class Tuneiversal.Views.Layouts.SCSong extends Backbone.Marionette.ItemView
     if Tuneiversal.activeSong? and not @model.get('isPlaying')
       Tuneiversal.activeSong.view.stop()
     if not @track
+      console.log 'no track'
       promise = new $.Deferred()
-      SC.stream "/tracks/#{@model.get 'song_id'}", (track) =>
+      console.log 'past deferred'
+      SC.stream "/tracks/#{@model.get 'song_id'}",{}, (track) =>
+        console.log 'in callback'
         @track = track
         promise.resolve()
       promise.done () =>
+        console.log 'track loaded'
         if not @model.get 'isPlaying'
+          console.log 'playing track'
           @track.play()
           @model.set isPlaying: true
           Tuneiversal.activeSong = @model

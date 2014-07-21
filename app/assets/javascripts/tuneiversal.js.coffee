@@ -1,4 +1,4 @@
- window.Tuneiversal = new Backbone.Marionette.Application()
+window.Tuneiversal = new Backbone.Marionette.Application()
 
 Backbone.Marionette.Renderer.render = (template, data) ->
   if !JST[template] 
@@ -15,13 +15,21 @@ Tuneiversal.layouts = {}
 Tuneiversal.addRegions
   app: '#app'
 Tuneiversal.vent.on 'authentication:logged_in', () ->
+  # if window.location.href.indexOf 'local' >= 0
+  #   Tuneiversal.env = "DEV"
+  # else
+  #   Tuneiversal.env = "PROD"
+  Messenger.options = 
+    theme: 'block'
+    extraClasses: 'messenger-fixed messenger-on-top'
+  Backbone.history.start()
   Tuneiversal.app.show Tuneiversal.layouts.main
   Tuneiversal.layouts.main.sign_ins.show Tuneiversal.layouts.app_signins
   Tuneiversal.layouts.app_signins.soundcloud_auto_auth()
   Tuneiversal.layouts.main.nav.show Tuneiversal.layouts.top_nav
   Tuneiversal.layouts.main.content.show Tuneiversal.layouts.content_tabs
   Tuneiversal.layouts.content_tabs.playlists.show Tuneiversal.layouts.playlists_tab
-  # Tuneiversal.layouts.content_tabs.soundcloud.show Tuneiversal.layouts.soundcloud_tab
+  Tuneiversal.layouts.content_tabs.soundcloud.show Tuneiversal.layouts.soundcloud_tab
 Tuneiversal.vent.on 'authentication:logged_out', () ->
   console.log 'logged out'
   Tuneiversal.app.show Tuneiversal.layouts.auth_base
