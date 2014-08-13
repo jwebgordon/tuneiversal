@@ -1,22 +1,22 @@
 <div class="row-fluid track-container">
-				<div class="span3 track">
-								<h5>
-												<%= __obj.song.artist %> - <%= __obj.song.title %>
-								</h5>
-								<div class="track-action">
-												<img src="/assets/audio_play.png" class="play-pause"> <img src="/assets/audio_stop.png" class="stop">
-								</div>
-								<div class="playlist-select">								
-												<div class="dropdown">
-																<a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html"><img src="/assets/cog-icon.png" class="cog-icon" /></a>
-																<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-																	<li class="dropdown-submenu">
- 																	<a tabindex="-1" href="#">Add to Playlist</a>
-    														<ul class="dropdown-menu playlist-dropdown-menu">
-    														</ul>
- 															</li>
-															</ul>
-												</div>
-								</div>
-				</div>
+	<div class="span3 track">
+		<h5>
+			<%= __obj.song.artist %> - <%= __obj.song.title %>
+		</h5>
+		<div class="track-action">
+			<img src="/assets/audio_play.png" class="play-pause"> <img src="/assets/audio_stop.png" class="stop">  <img src="/assets/audio_next.png" class="next">
+		</div>
+		<div class="playlist-select">								
+			<div class="dropdown">
+				<a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html"><img src="/assets/cog-icon.png" class="cog-icon" /></a>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+					<li class="dropdown-submenu">
+						<a tabindex="-1" href="#">Add to Playlist</a>
+						<ul class="dropdown-menu playlist-dropdown-menu">
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </div>

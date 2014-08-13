@@ -2,23 +2,27 @@ class Tuneiversal.Views.Layouts.RdioSong extends Backbone.Marionette.ItemView
   template: 'layouts/rdio_song'
 
   events:
-    'click .play-pause': 'play_pause'
+    'click .play-pause': 'new_play'
     'click .stop': 'stop'
     'click .add-to-playlist': 'add_song_to_playlist'
+    'click .next': 'next'
 
   initialize: () ->
     # @model.bind('change', @render)
     @model.view = @
     R.ready (ready) =>
       @load_playlist_select()
+      R.player.on 'change:playState', @handle_playstate
     @songs_ready = new $.Deferred()
     @allSongs = new Tuneiversal.Collections.Songs
     @allSongs.fetch success: =>
       @songs_ready.resolve()
     
+  new_play: () ->
+    Tuneiversal.layouts.player.new_play @model
 
   play_pause: () ->
-    if R.player.playState() == 0
+    if R.player.playState() == R.player.PLAYSTATE_PAUSED or R.player.playState() == R.player.PLAYSTATE_STOPPED
       R.player.play
         source: @model.attributes.song_id
       @set_play_icon true
@@ -49,13 +53,27 @@ class Tuneiversal.Views.Layouts.RdioSong extends Backbone.Marionette.ItemView
       @$el.find('.play-pause').attr('src','/assets/audio_play.png')
       @$el.removeClass('playing')
 
+  handle_playstate: () ->
+    if @current_playstate != R.player.playState()
+      console.log "Changing playstate: #{R.player.playState()}"
+      if R.player.playState() == R.player.PLAYSTATE_PAUSED
+      else if R.player.playState() == R.player.PLAYSTATE_PLAYING
+      else if R.player.playState() == R.player.PLAYSTATE_STOPPED and @current_playstate == R.player.PLAYSTATE_PLAYING
+        console.log 'new playstate stopped'
+        Tuneiversal.layouts.player.next()
+    @current_playstate = R.player.playState()
+    
+
   stop: () ->
     if R.player.playState() > 0
       @set_play_icon false
       R.player.previous()
       R.player.pause()
       
-
+  next: () ->
+    console.log 'next called'
+    Tuneiversal.layouts.player.next()
+    
     
       
   load_playlist_select: () ->

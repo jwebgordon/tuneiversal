@@ -3,10 +3,11 @@ class Tuneiversal.Views.Layouts.SCSong extends Backbone.Marionette.ItemView
   # el: '#soundcloud'
 
   events:
-    'click .play-pause': 'play_pause'
+    'click .play-pause': 'new_play'
     'click .stop': 'stop'
     'click .add-to-playlist': 'add_song_to_playlist'
     'click .dropdown-toggle': 'load_playlist_select'
+    'click .next': 'next'
 
   initialize: () ->
     @model.bind('change', @render)
@@ -16,6 +17,9 @@ class Tuneiversal.Views.Layouts.SCSong extends Backbone.Marionette.ItemView
     @allSongs = new Tuneiversal.Collections.Songs
     @allSongs.fetch success: =>
       @songs_ready.resolve()
+
+  new_play: () ->
+    Tuneiversal.layouts.player.new_play @model
     
   play_pause: () ->
     # if $('.playing').length > 0 and not @$el.hasClass 'playing'
@@ -35,7 +39,9 @@ class Tuneiversal.Views.Layouts.SCSong extends Backbone.Marionette.ItemView
         console.log 'track loaded'
         if not @model.get 'isPlaying'
           console.log 'playing track'
-          @track.play()
+          @track.play
+            onfinish: () => 
+              @next()
           @model.set isPlaying: true
           Tuneiversal.activeSong = @model
           @$el.addClass 'playing'
@@ -60,6 +66,8 @@ class Tuneiversal.Views.Layouts.SCSong extends Backbone.Marionette.ItemView
       @$el.removeClass 'playing'
       @swap_play_image()
 
+  next: () ->
+    Tuneiversal.layouts.player.next()
 
   swap_play_image: () ->
     if @model.get('isPlaying')#@$el.hasClass 'playing'

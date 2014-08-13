@@ -21,7 +21,7 @@ class Tuneiversal.Views.Layouts.SoundcloudTab extends Backbone.Marionette.Layout
         service: 'soundcloud'
       songs.add sc_song
       song_view = new Tuneiversal.Views.Layouts.SCSong model: sc_song
-      # Tuneiversal.layouts.player.queue.add sc_song
+      Tuneiversal.layouts.player.queue.add sc_song
       $('#soundcloud').append song_view.render().el
 
 

@@ -15,10 +15,10 @@ Tuneiversal.layouts = {}
 Tuneiversal.addRegions
   app: '#app'
 Tuneiversal.vent.on 'authentication:logged_in', () ->
-  # if window.location.href.indexOf 'local' >= 0
-  #   Tuneiversal.env = "DEV"
-  # else
-  #   Tuneiversal.env = "PROD"
+  if window.location.href.indexOf 'local' >= 0
+    Tuneiversal.env = "DEV"
+  else
+    Tuneiversal.env = "PROD"
   Messenger.options = 
     theme: 'block'
     extraClasses: 'messenger-fixed messenger-on-top'
