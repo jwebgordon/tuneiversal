@@ -16,10 +16,12 @@ class Tuneiversal.Views.Layouts.Playlist extends Backbone.Marionette.ItemView
       for song in @songs.models
           if song.get('service') == 'soundcloud'
             song_view = new Tuneiversal.Views.Layouts.SCSong model: song
+            Tuneiversal.layouts.player.queue.add song
             $('#playlist-right').append song_view.render().el
             @model.songs = @songs
           else if song.get('service') == 'rdio'
             song_view = new Tuneiversal.Views.Layouts.RdioSong model: song
+            Tuneiversal.layouts.player.queue.add song
             $('#playlist-right').append song_view.render().el
             @model.songs = @songs
     else
@@ -29,10 +31,12 @@ class Tuneiversal.Views.Layouts.Playlist extends Backbone.Marionette.ItemView
         for song in @songs.models
           if song.get('service') == 'soundcloud'
             song_view = new Tuneiversal.Views.Layouts.SCSong model: song
+            Tuneiversal.layouts.player.queue.add song
             $('#playlist-right').append song_view.render().el
             @model.songs = @songs
           else if song.get('service') == 'rdio'
             song_view = new Tuneiversal.Views.Layouts.RdioSong model: song
+            Tuneiversal.layouts.player.queue.add song
             $('#playlist-right').append song_view.render().el
             @model.songs = @songs
         console.log @model

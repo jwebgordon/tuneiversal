@@ -8,5 +8,5 @@
 		
 	</div>
 </div>
-<div id="the-content"></div>
+<div id="the-content" class="row-fluid"></div>
 </div>

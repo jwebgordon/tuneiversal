@@ -1,11 +1,13 @@
-<ul id="content-tabs" class="nav nav-tabs">
-  <li class="active"><a href="#soundcloud" data-toggle="tab">Soundcloud</a></li>
-  <li><a href="#rdio" data-toggle="tab">Rdio</a></li>
-  <li><a href="#playlists" data-toggle="tab">Playlists</a></li>
-  <li><a href="#settings" data-toggle="tab">Settings</a></li>
-</ul>
+<div class="span3">
+    <ul id="content-tabs" class="nav nav-pills nav-stacked">
+      <li class="active"><a href="#soundcloud" data-toggle="tab">Soundcloud</a></li>
+      <li><a href="#rdio" data-toggle="tab">Rdio</a></li>
+      <li><a href="#playlists" data-toggle="tab">Playlists</a></li>
+      <li><a href="#settings" data-toggle="tab">Settings</a></li>
+    </ul>
+</div>
 
-<div id="content-tabs-content" class="tab-content">
+<div id="content-tabs-content" class="tab-content span9">
   <div class="tab-pane active" id="soundcloud"></div>
   <div class="tab-pane" id="rdio"></div>
   <div class="tab-pane" id="playlists">
